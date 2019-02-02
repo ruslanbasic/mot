@@ -8,6 +8,7 @@
   ******************************************************************************
 */
 /// http://www.ac6-tools.com/Eclipse-updates/org.openstm32.system-workbench.update-site-v2/
+/// http://www.ac6-tools.com/Eclipse-updates/org.openstm32.system-workbench.site/
 
 #include "stm32f10x.h"
 #include "stm32f10x_rcc.h"
