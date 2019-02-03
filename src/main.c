@@ -63,8 +63,8 @@
 #define out12_io	GPIOB
 #define out12_rcc	RCC_APB2Periph_GPIOB
 
-#define pulse		0x000000ff
-#define pause		0x0000ffff
+#define pulse		0x00000fff
+#define pause		0x00001fff
 
 
 
