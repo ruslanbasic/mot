@@ -64,8 +64,8 @@
 #define out12_rcc	RCC_APB2Periph_GPIOB
 
 #define pulse		0x0000003f
-#define pulsep		0x0000002f
-#define pause		0x000000ff
+#define pulsep		0x0000003f
+#define pause		0x000002ff
 
 
 
@@ -132,7 +132,7 @@ int main(void)
 
 	for(;;)
 	{
-		for (count=1; count < 1000; count++ )
+		for (count=1; count < 5000; count++ )
 		{
 			GPIO_SetBits(out1_io, out1_pin);
 			zpause=pulse;
@@ -146,7 +146,7 @@ int main(void)
 		zpause=pause;
 		while (zpause--);
 
-		for (count=1; count < 1000; count++ )
+		for (count=1; count < 5000; count++ )
 		{
 			GPIO_SetBits(out2_io, out2_pin);
 			zpause=pulse;
@@ -160,7 +160,7 @@ int main(void)
 		zpause=pause;
 		while (zpause--);
 
-		for (count=1; count < 1000; count++ )
+		for (count=1; count < 5000; count++ )
 		{
 			GPIO_SetBits(out3_io, out3_pin);
 			zpause=pulse;
@@ -174,7 +174,7 @@ int main(void)
 		zpause=pause;
 		while (zpause--);
 
-		for (count=1; count < 1000; count++ )
+		for (count=1; count < 5000; count++ )
 		{
 			GPIO_SetBits(out4_io, out4_pin);
 			zpause=pulse;
@@ -191,7 +191,7 @@ int main(void)
 
 
 
-		for (count=1; count < 1000; count++ )
+		for (count=1; count < 5000; count++ )
 		{
 			GPIO_SetBits(out5_io, out5_pin);
 			zpause=pulse;
