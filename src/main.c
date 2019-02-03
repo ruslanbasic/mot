@@ -63,8 +63,9 @@
 #define out12_io	GPIOB
 #define out12_rcc	RCC_APB2Periph_GPIOB
 
-#define pulse		0x00000fff
-#define pause		0x00001fff
+#define pulse		0x0000003f
+#define pulsep		0x0000002f
+#define pause		0x000000ff
 
 
 
@@ -73,7 +74,7 @@ GPIO_InitTypeDef GPIO_InitStruct;
 
 int main(void)
 {
-	volatile uint32_t zpause;
+	volatile uint32_t zpause, count;
 
 	/////////        GPIO init /////////////////////////////
 	GPIO_InitStruct.GPIO_Speed = GPIO_Speed_50MHz;
@@ -131,13 +132,87 @@ int main(void)
 
 	for(;;)
 	{
+		for (count=1; count < 1000; count++ )
+		{
+			GPIO_SetBits(out1_io, out1_pin);
+			zpause=pulse;
+			while (zpause--);
+			GPIO_ResetBits(out1_io, out1_pin);
+			zpause=pulse;
+			while (zpause--);
+		}
 
-		GPIO_SetBits(out1_io, out1_pin);
-		zpause=pulse;
-		while (zpause--);
-		GPIO_ResetBits(out1_io, out1_pin);
+
 		zpause=pause;
 		while (zpause--);
+
+		for (count=1; count < 1000; count++ )
+		{
+			GPIO_SetBits(out2_io, out2_pin);
+			zpause=pulse;
+			while (zpause--);
+			GPIO_ResetBits(out2_io, out2_pin);
+			zpause=pulse;
+			while (zpause--);
+		}
+
+
+		zpause=pause;
+		while (zpause--);
+
+		for (count=1; count < 1000; count++ )
+		{
+			GPIO_SetBits(out3_io, out3_pin);
+			zpause=pulse;
+			while (zpause--);
+			GPIO_ResetBits(out3_io, out3_pin);
+			zpause=pulse;
+			while (zpause--);
+		}
+
+
+		zpause=pause;
+		while (zpause--);
+
+		for (count=1; count < 1000; count++ )
+		{
+			GPIO_SetBits(out4_io, out4_pin);
+			zpause=pulse;
+			while (zpause--);
+			GPIO_ResetBits(out4_io, out4_pin);
+			zpause=pulse;
+			while (zpause--);
+		}
+
+
+		zpause=pause;
+		while (zpause--);
+
+
+
+
+		for (count=1; count < 1000; count++ )
+		{
+			GPIO_SetBits(out5_io, out5_pin);
+			zpause=pulse;
+			while (zpause--);
+			GPIO_ResetBits(out5_io, out5_pin);
+			zpause=pulse;
+			while (zpause--);
+		}
+
+
+		zpause=pause*50;
+		while (zpause--);
+
+
+
+
+
+
+
+
+
 
 		GPIO_SetBits(out2_io, out2_pin);
 		zpause=pulse;
