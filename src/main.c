@@ -63,10 +63,10 @@
 #define out12_io	GPIOB
 #define out12_rcc	RCC_APB2Periph_GPIOB
 
-#define pulse		0x0000003f
-#define pulsep		0x0000003f
-#define pause		0x000002ff
-
+#define pulse		0x0000005f
+#define pulsep		0x00000010
+#define pause		0x000005f3
+#define pulsec		0x0000087f
 
 
 GPIO_InitTypeDef GPIO_InitStruct;
@@ -132,13 +132,13 @@ int main(void)
 
 	for(;;)
 	{
-		for (count=1; count < 5000; count++ )
+		for (count=1; count < pulsec; count++ )
 		{
 			GPIO_SetBits(out1_io, out1_pin);
 			zpause=pulse;
 			while (zpause--);
 			GPIO_ResetBits(out1_io, out1_pin);
-			zpause=pulse;
+			zpause=pulsep;
 			while (zpause--);
 		}
 
@@ -146,13 +146,13 @@ int main(void)
 		zpause=pause;
 		while (zpause--);
 
-		for (count=1; count < 5000; count++ )
+		for (count=1; count < pulsec*2; count++ )
 		{
 			GPIO_SetBits(out2_io, out2_pin);
 			zpause=pulse;
 			while (zpause--);
 			GPIO_ResetBits(out2_io, out2_pin);
-			zpause=pulse;
+			zpause=pulsep;
 			while (zpause--);
 		}
 
@@ -160,13 +160,13 @@ int main(void)
 		zpause=pause;
 		while (zpause--);
 
-		for (count=1; count < 5000; count++ )
+		for (count=1; count < pulsec; count++ )
 		{
 			GPIO_SetBits(out3_io, out3_pin);
 			zpause=pulse;
 			while (zpause--);
 			GPIO_ResetBits(out3_io, out3_pin);
-			zpause=pulse;
+			zpause=pulsep;
 			while (zpause--);
 		}
 
@@ -174,13 +174,13 @@ int main(void)
 		zpause=pause;
 		while (zpause--);
 
-		for (count=1; count < 5000; count++ )
+		for (count=1; count < pulsec; count++ )
 		{
 			GPIO_SetBits(out4_io, out4_pin);
 			zpause=pulse;
 			while (zpause--);
 			GPIO_ResetBits(out4_io, out4_pin);
-			zpause=pulse;
+			zpause=pulsep;
 			while (zpause--);
 		}
 
@@ -191,13 +191,119 @@ int main(void)
 
 
 
-		for (count=1; count < 5000; count++ )
+		for (count=1; count < pulsec; count++ )
 		{
 			GPIO_SetBits(out5_io, out5_pin);
 			zpause=pulse;
 			while (zpause--);
 			GPIO_ResetBits(out5_io, out5_pin);
+			zpause=pulsep;
+			while (zpause--);
+		}
+
+
+		zpause=pause*50;
+		while (zpause--);
+
+
+		for (count=1; count < pulsec; count++ )
+		{
+			GPIO_SetBits(out6_io, out6_pin);
 			zpause=pulse;
+			while (zpause--);
+			GPIO_ResetBits(out6_io, out6_pin);
+			zpause=pulsep;
+			while (zpause--);
+		}
+
+
+		zpause=pause;
+		while (zpause--);
+
+		for (count=1; count < pulsec; count++ )
+		{
+			GPIO_SetBits(out7_io, out7_pin);
+			zpause=pulse;
+			while (zpause--);
+			GPIO_ResetBits(out7_io, out7_pin);
+			zpause=pulsep;
+			while (zpause--);
+		}
+
+
+		zpause=pause;
+		while (zpause--);
+
+		for (count=1; count < pulsec; count++ )
+		{
+			GPIO_SetBits(out8_io, out8_pin);
+			zpause=pulse;
+			while (zpause--);
+			GPIO_ResetBits(out8_io, out8_pin);
+			zpause=pulsep;
+			while (zpause--);
+		}
+
+
+		zpause=pause;
+		while (zpause--);
+
+		for (count=1; count < pulsec; count++ )
+		{
+			GPIO_SetBits(out9_io, out9_pin);
+			zpause=pulse;
+			while (zpause--);
+			GPIO_ResetBits(out9_io, out9_pin);
+			zpause=pulsep;
+			while (zpause--);
+		}
+
+
+		zpause=pause;
+		while (zpause--);
+
+
+
+
+		for (count=1; count < pulsec; count++ )
+		{
+			GPIO_SetBits(out10_io, out10_pin);
+			zpause=pulse;
+			while (zpause--);
+			GPIO_ResetBits(out10_io, out10_pin);
+			zpause=pulsep;
+			while (zpause--);
+		}
+
+
+		zpause=pause*50;
+		while (zpause--);
+
+
+		for (count=1; count < pulsec; count++ )
+		{
+			GPIO_SetBits(out11_io, out11_pin);
+			zpause=pulse;
+			while (zpause--);
+			GPIO_ResetBits(out11_io, out11_pin);
+			zpause=pulsep;
+			while (zpause--);
+		}
+
+
+		zpause=pause;
+		while (zpause--);
+
+
+
+
+		for (count=1; count < pulsec; count++ )
+		{
+			GPIO_SetBits(out12_io, out12_pin);
+			zpause=pulse;
+			while (zpause--);
+			GPIO_ResetBits(out12_io, out12_pin);
+			zpause=pulsep;
 			while (zpause--);
 		}
 
@@ -207,89 +313,84 @@ int main(void)
 
 
 
-
-
-
-
-
-
-
-		GPIO_SetBits(out2_io, out2_pin);
-		zpause=pulse;
-		while (zpause--);
-		GPIO_ResetBits(out2_io, out2_pin);
-		zpause=pause;
-		while (zpause--);
-
-		GPIO_SetBits(out3_io, out3_pin);
-		zpause=pulse;
-		while (zpause--);
-		GPIO_ResetBits(out3_io, out3_pin);
-		zpause=pause;
-		while (zpause--);
-
-		GPIO_SetBits(out4_io, out4_pin);
-		zpause=pulse;
-		while (zpause--);
-		GPIO_ResetBits(out4_io, out4_pin);
-		zpause=pause;
-		while (zpause--);
-
-		GPIO_SetBits(out5_io, out5_pin);
-		zpause=pulse;
-		while (zpause--);
-		GPIO_ResetBits(out5_io, out5_pin);
-		zpause=pause;
-		while (zpause--);
-
-		GPIO_SetBits(out6_io, out6_pin);
-		zpause=pulse;
-		while (zpause--);
-		GPIO_ResetBits(out6_io, out6_pin);
-		zpause=pause;
-		while (zpause--);
-
-		GPIO_SetBits(out7_io, out7_pin);
-		zpause=pulse;
-		while (zpause--);
-		GPIO_ResetBits(out7_io, out7_pin);
-		zpause=pause;
-		while (zpause--);
-
-		GPIO_SetBits(out8_io, out8_pin);
-		zpause=pulse;
-		while (zpause--);
-		GPIO_ResetBits(out8_io, out8_pin);
-		zpause=pause;
-		while (zpause--);
-
-		GPIO_SetBits(out9_io, out9_pin);
-		zpause=pulse;
-		while (zpause--);
-		GPIO_ResetBits(out9_io, out9_pin);
-		zpause=pause;
-		while (zpause--);
-
-		GPIO_SetBits(out10_io, out10_pin);
-		zpause=pulse;
-		while (zpause--);
-		GPIO_ResetBits(out10_io, out10_pin);
-		zpause=pause;
-		while (zpause--);
-
-		GPIO_SetBits(out11_io, out11_pin);
-		zpause=pulse;
-		while (zpause--);
-		GPIO_ResetBits(out11_io, out11_pin);
-		zpause=pause;
-		while (zpause--);
-
-		GPIO_SetBits(out12_io, out12_pin);
-		zpause=pulse;
-		while (zpause--);
-		GPIO_ResetBits(out12_io, out12_pin);
-		zpause=pause;
-		while (zpause--);
+//
+//
+//		GPIO_SetBits(out2_io, out2_pin);
+//		zpause=pulse;
+//		while (zpause--);
+//		GPIO_ResetBits(out2_io, out2_pin);
+//		zpause=pause;
+//		while (zpause--);
+//
+//		GPIO_SetBits(out3_io, out3_pin);
+//		zpause=pulse;
+//		while (zpause--);
+//		GPIO_ResetBits(out3_io, out3_pin);
+//		zpause=pause;
+//		while (zpause--);
+//
+//		GPIO_SetBits(out4_io, out4_pin);
+//		zpause=pulse;
+//		while (zpause--);
+//		GPIO_ResetBits(out4_io, out4_pin);
+//		zpause=pause;
+//		while (zpause--);
+//
+//		GPIO_SetBits(out5_io, out5_pin);
+//		zpause=pulse;
+//		while (zpause--);
+//		GPIO_ResetBits(out5_io, out5_pin);
+//		zpause=pause;
+//		while (zpause--);
+//
+//		GPIO_SetBits(out6_io, out6_pin);
+//		zpause=pulse;
+//		while (zpause--);
+//		GPIO_ResetBits(out6_io, out6_pin);
+//		zpause=pause;
+//		while (zpause--);
+//
+//		GPIO_SetBits(out7_io, out7_pin);
+//		zpause=pulse;
+//		while (zpause--);
+//		GPIO_ResetBits(out7_io, out7_pin);
+//		zpause=pause;
+//		while (zpause--);
+//
+//		GPIO_SetBits(out8_io, out8_pin);
+//		zpause=pulse;
+//		while (zpause--);
+//		GPIO_ResetBits(out8_io, out8_pin);
+//		zpause=pause;
+//		while (zpause--);
+//
+//		GPIO_SetBits(out9_io, out9_pin);
+//		zpause=pulse;
+//		while (zpause--);
+//		GPIO_ResetBits(out9_io, out9_pin);
+//		zpause=pause;
+//		while (zpause--);
+//
+//		GPIO_SetBits(out10_io, out10_pin);
+//		zpause=pulse;
+//		while (zpause--);
+//		GPIO_ResetBits(out10_io, out10_pin);
+//		zpause=pause;
+//		while (zpause--);
+//
+//		GPIO_SetBits(out11_io, out11_pin);
+//		zpause=pulse;
+//		while (zpause--);
+//		GPIO_ResetBits(out11_io, out11_pin);
+//		zpause=pause;
+//		while (zpause--);
+//
+//		GPIO_SetBits(out12_io, out12_pin);
+//		zpause=pulse;
+//		while (zpause--);
+//		GPIO_ResetBits(out12_io, out12_pin);
+//		zpause=pause;
+//		while (zpause--);
 
 
 
